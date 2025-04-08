@@ -11398,6 +11398,7 @@ h5,
 }
 
 .ftc-no-pb {
+  margin-bottom: 8rem;
   padding-bottom: 0 !important;
 }
 
@@ -11520,8 +11521,10 @@ h5,
   font-weight: 500;
 }
 .wrap-about .img {
-  width: 100%;
+  width: 95%;
+  border-top-left-radius: 150px;
   background-position: 40% 50%;
+  border-bottom-right-radius: 150px;
 }
 
 .ftco-services {
@@ -11586,8 +11589,9 @@ h5,
   width: calc(100% - 80px);
 }
 .services-2 .text h3 {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .course {
@@ -13018,30 +13022,53 @@ textarea.form-control {
   margin: 0px 10px;
 }
 
-.media-body p{
+.media-body p {
   font-size: 12px;
 }
 
-.ftco-services{
+.ftco-services {
   margin-bottom: 8rem;
 }
 
-.services-2{
+.services-2 {
   align-items: center;
 }
 
-.services-2 .text p{
+.services-2 .text p {
   font-size: 13px;
   font-weight: 500;
 }
 
-.offer-header{
+.offer-header {
   font-weight: 800 !important;
   text-transform: uppercase;
 }
-.offer-header span{
+.offer-header span {
   color: var(--primary);
 }
-.offers-parent{
+.offers-parent {
   align-items: center;
+}
+.program-span {
+  color: var(--primary);
+}
+.program-heading {
+  font-weight: 800 !important;
+  text-transform: uppercase;
+}
+.teachers-span {
+  color: var(--primary);
+}
+.teachers-heading {
+  text-transform: uppercase;
+  font-size: 26px;
+  font-weight: 800 !important;
+}
+.blog-heading {
+  color: var(--primary);
+}
+.blog-parent {
+  text-transform: uppercase;
+  font-size: 26px;
+  font-weight: 800 !important;
 }
