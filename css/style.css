@@ -11102,6 +11102,7 @@ h5,
   background-repeat: no-repeat;
   background-position: center center;
   position: relative;
+  margin-bottom: 6rem;
 }
 .hero-wrap .overlay {
   position: absolute;
@@ -13071,4 +13072,11 @@ textarea.form-control {
   text-transform: uppercase;
   font-size: 26px;
   font-weight: 800 !important;
+}
+.about-reverse{
+  flex-direction: row-reverse;
+}
+.about-2-rev{
+  margin-top: 6rem;
+  
 }
