@@ -13073,10 +13073,471 @@ textarea.form-control {
   font-size: 26px;
   font-weight: 800 !important;
 }
-.about-reverse{
+.about-reverse {
   flex-direction: row-reverse;
 }
-.about-2-rev{
+.about-2-rev {
   margin-top: 6rem;
+}
+
+/* about page custom */
+/* Variables */
+:root {
+  --primary: #2c3e50;
+  --vision: #d64541;
+  --mission: #f5d76e;
+  --anthem: #00b16a;
+  --values: #f27935;
+  --white: #fff;
+  --gray: #eee;
+  --light-gray: #f8f9fa;
+  --dark-gray: #343a40;
+}
+
+/* Base Styles */
+.about-carousel {
+  margin-bottom: 3rem;
+  padding: 0 15px;
+}
+
+.section-intro {
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+}
+
+.section-intro .lead {
+  font-size: 1.25rem;
+  color: var(--primary);
+  text-transform: capitalize;
+  font-weight: 300;
+  letter-spacing: 0.05rem;
+}
+
+.aci-scan {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.divider {
+  width: 80px;
+  height: 3px;
+  background: var(--primary);
+  position: relative;
+}
+
+.divider span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 0 1rem;
+  color: var(--primary);
+}
+
+.about-carousel-intro {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 28px;
+  color: var(--dark-gray);
+}
+
+/* Mobile Accordion Styles */
+.mobile-carousel-container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.mobile-carousel-container .card {
+  margin-bottom: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.mobile-carousel-container .card-header {
+  padding: 0;
+  background-color: var(--light-gray);
+  border-bottom: none;
+}
+
+.mobile-carousel-container .btn-link {
+  width: 100%;
+  text-align: left;
+  padding: 15px 20px;
+  color: var(--dark-gray);
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.mobile-carousel-container .btn-link:hover {
+  color: var(--primary);
+}
+
+.mobile-carousel-container .btn-link.collapsed::after {
+  content: '+';
+  margin-left: auto;
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.mobile-carousel-container .btn-link:not(.collapsed)::after {
+  content: '-';
+  margin-left: auto;
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.mobile-carousel-container .card-body {
+  padding: 20px;
+  background-color: white;
+}
+
+.mobile-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 15px;
+  object-fit: contain;
+}
+
+.mobile-carousel-container h4 {
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.mobile-carousel-container p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Desktop Carousel Styles */
+#scene {
+  display: flex;
+  width: 90%;
+  max-width: 1000px;
+  height: auto;
+  min-height: 400px;
+  position: relative;
+  z-index: auto;
+  margin: 0 auto;
+  background-color: var(--white);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+#left-zone {
+  background: var(--white);
+  height: 100%;
+  min-height: 400px;
+  flex: 0 0 30%;
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  list-style: none;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.item {
+  margin: 0;
+  padding: 0;
+}
+
+.item input[type='radio'] {
+  display: none;
+}
+
+.item input[type='radio'] ~ label {
+  display: block;
+  opacity: 0.7;
+  height: 70px;
+  line-height: 70px;
+  padding-left: 80px;
+  font-weight: 500;
+  color: var(--dark-gray);
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.item input[type='radio'] ~ label:hover {
+  opacity: 0.9;
+}
+
+.label_vision:before,
+.label_mission:before,
+.label_anthem:before,
+.label_values:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease;
+}
+
+.label_vision:before {
+  background-image: url('../images/vision.jpg');
+}
+
+.label_mission:before {
+  background-image: url('../images/mission.jpg');
+}
+
+.label_anthem:before {
+  background-image: url('../images/anthem.jpg');
+}
+
+.label_values:before {
+  background-image: url('../images/values.jpg');
+}
+
+.item input[type='radio'] ~ .content {
+  position: absolute;
+  left: 30%;
+  top: 0;
+  width: 70%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation-duration: 0.5s;
+  animation-name: slideout;
+  animation-timing-function: ease-out;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.content_vision .picto,
+.content_mission .picto,
+.content_anthem .picto,
+.content_values .picto {
+  height: 80px;
+  width: 80px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 20px;
+}
+
+.content_vision .picto {
+  background-image: url('../images/vision.jpg');
+}
+
+.content_mission .picto {
+  background-image: url('../images/mission.jpg');
+}
+
+.content_anthem .picto {
+  background-image: url('../images/anthem.jpg');
+}
+
+.content_values .picto {
+  background-image: url('../images/values.jpg');
+}
+
+.content h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.content h1:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+}
+
+.content_vision h1 {
+  color: var(--vision);
+}
+
+.content_vision h1:after {
+  background: var(--vision);
+}
+
+.content_mission h1 {
+  color: var(--mission);
+}
+
+.content_mission h1:after {
+  background: var(--mission);
+}
+
+.content_anthem h1 {
+  color: var(--anthem);
+}
+
+.content_anthem h1:after {
+  background: var(--anthem);
+}
+
+.content_values h1 {
+  color: var(--values);
+}
+
+.content_values h1:after {
+  background: var(--values);
+}
+
+.content p {
+  max-width: 90%;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.item input[type='radio']:checked ~ label {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.item input[type='radio']:checked ~ .label_vision {
+  color: var(--vision);
+  border-right: 4px solid var(--vision);
+}
+
+.item input[type='radio']:checked ~ .label_mission {
+  color: var(--mission);
+  border-right: 4px solid var(--mission);
+}
+
+.item input[type='radio']:checked ~ .label_anthem {
+  color: var(--anthem);
+  border-right: 4px solid var(--anthem);
+}
+
+.item input[type='radio']:checked ~ .label_values {
+  color: var(--values);
+  border-right: 4px solid var(--values);
+}
+
+.item input[type='radio']:checked ~ .content {
+  animation: slidein 0.5s forwards;
+  opacity: 1;
+  visibility: visible;
+}
+
+#middle-border {
+  background-color: var(--gray);
+  width: 1px;
+  z-index: 1;
+}
+
+#right-zone {
+  display: none;
+}
+
+/* Values List Styles */
+.values-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.value-item {
+  flex: 1;
+  min-width: 200px;
+  background: var(--light-gray);
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.value-item h3,
+.value-item h5 {
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.value-item ul {
+  padding-left: 20px;
+}
+
+.value-item li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+/* Anthem Verse Styles */
+.anthem-verse p {
+  margin-bottom: 20px;
+  line-height: 1.8;
+}
+
+/* Animations */
+@keyframes slidein {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideout {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+  .about-carousel {
+    margin-bottom: 6rem;
+    padding: 0;
+  }
   
+  .about-carousel-intro {
+    font-size: 35px;
+  }
+}
+
+@media (max-width: 575px) {
+  .mobile-carousel-container .btn-link {
+    padding: 12px 15px;
+    font-size: 0.95rem;
+  }
+  
+  .mobile-icon {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+  
+  .value-item {
+    min-width: 100%;
+  }
 }
