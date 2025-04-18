@@ -1,0 +1,20 @@
+[
+    {
+        "image": "../assets/photos/photo1.jpg",
+        "title": "Class of 2023 Graduation",
+        "year": "2023",
+        "class": "Grade 12"
+    },
+    {
+        "image": "../assets/photos/photo2.jpg",
+        "title": "Science Fair Winners",
+        "year": "2022",
+        "class": "Grade 10"
+    },
+    {
+        "image": "../assets/photos/photo3.jpg",
+        "title": "Annual Day Performance",
+        "year": "2021",
+        "class": "Grade 9"
+    }
+]
