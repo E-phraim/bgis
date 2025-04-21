@@ -1,10 +1,11 @@
-const galleryData = {
+// Complete gallery data
+const xcvGalleryData = {
   yearbook: [
     {
       id: 101,
       type: 'cover',
       year: '2023',
-      title: '2023 Yearbook - EMMANUEL USOTAI NSIEN ',
+      title: '2023 Yearbook - EMMANUEL USOTAI NSIEN',
       date: 'June 2023',
       description: 'The official cover of the 2023 yearbook',
       img: 'images/YearBook-EMMANUEL USOTAI NSIEN.png',
@@ -63,26 +64,6 @@ const galleryData = {
       description: 'The official cover of the 2023 yearbook',
       img: 'images/YearBookUBONGABASI ANIETIE EDIGHIENYONG.png',
     },
-    // {
-    //     id: 102, type: 'class', year: '2023', title: 'Class of 2023', date: 'June 2023',
-    //     description: 'Group photo of the graduating class', img: 'https://source.unsplash.com/random/800x600/?graduation,class'
-    // },
-    // {
-    //     id: 103, type: 'events', year: '2023', title: 'Year in Review', date: 'June 2023',
-    //     description: 'Collage of major school events', img: 'https://source.unsplash.com/random/800x600/?collage,school'
-    // },
-    // {
-    //     id: 104, type: 'class', year: '2022', title: 'Class of 2022', date: 'June 2022',
-    //     description: 'Group photo of the graduating class', img: 'https://source.unsplash.com/random/800x600/?graduation,group'
-    // },
-    // {
-    //     id: 105, type: 'cover', year: '2022', title: '2022 Yearbook Cover', date: 'June 2022',
-    //     description: 'The official cover of the 2022 yearbook', img: 'https://source.unsplash.com/random/800x600/?yearbook,design'
-    // },
-    // {
-    //     id: 106, type: 'events', year: '2021', title: 'Year in Review', date: 'June 2021',
-    //     description: 'Collage of major school events', img: 'https://source.unsplash.com/random/800x600/?school,memories'
-    // }
   ],
   sports: [
     {
@@ -367,7 +348,7 @@ const galleryData = {
 }
 
 // Category metadata
-const categoryMetadata = {
+const xcvCategoryMetadata = {
   yearbook: {
     title: 'Yearbook Archives',
     types: ['cover', 'class', 'events'],
@@ -438,65 +419,65 @@ const categoryMetadata = {
 }
 
 // DOM elements
-const mainView = document.getElementById('main-view')
-const categoryView = document.getElementById('category-view')
-const galleryContainer = document.getElementById('gallery-container')
-const yearFilter = document.getElementById('year-filter')
-const typeFilter = document.getElementById('type-filter')
-const searchInput = document.getElementById('search')
-const lightbox = document.getElementById('lightbox')
-const lightboxImage = document.getElementById('lightbox-image')
-const lightboxTitle = document.getElementById('lightbox-title')
-const lightboxDate = document.getElementById('lightbox-date')
-const lightboxDescription = document.getElementById('lightbox-description')
-const closeLightbox = document.querySelector('.close-lightbox')
-const prevBtn = document.querySelector('.prev')
-const nextBtn = document.querySelector('.next')
-const categoryCards = document.querySelectorAll('.category-card')
-const backButton = document.getElementById('back-button')
-const currentCategoryTitle = document.getElementById('current-category')
+const xcvMainView = document.getElementById('xcv-main-view')
+const xcvCategoryView = document.getElementById('xcv-category-view')
+const xcvGalleryContainer = document.getElementById('xcv-gallery-container')
+const xcvYearFilter = document.getElementById('xcv-year-filter')
+const xcvTypeFilter = document.getElementById('xcv-type-filter')
+const xcvSearchInput = document.getElementById('xcv-search')
+const xcvLightbox = document.getElementById('xcv-lightbox')
+const xcvLightboxImg = document.getElementById('xcv-lightbox-img')
+const xcvLightboxTitle = document.getElementById('xcv-lightbox-title')
+const xcvLightboxDate = document.getElementById('xcv-lightbox-date')
+const xcvLightboxDesc = document.getElementById('xcv-lightbox-desc')
+const xcvLightboxClose = document.querySelector('.xcv-lightbox-close')
+const xcvLightboxPrev = document.querySelector('.xcv-lightbox-prev')
+const xcvLightboxNext = document.querySelector('.xcv-lightbox-next')
+const xcvCategoryCards = document.querySelectorAll('.xcv-category-card')
+const xcvBackBtn = document.getElementById('xcv-back-btn')
+const xcvCurrentCategory = document.getElementById('xcv-current-category')
 
 // Current state
-let currentItems = []
-let currentIndex = 0
-let currentCategory = null
+let xcvCurrentItems = []
+let xcvCurrentIndex = 0
+let xcvCurrentCategoryName = null
 
 // Initialize the gallery
-function initGallery() {
-  setupEventListeners()
+function xcvInitGallery() {
+  xcvSetupEventListeners()
 }
 
 // Show category view
-function showCategory(category) {
-  currentCategory = category
-  mainView.style.display = 'none'
-  categoryView.style.display = 'block'
-  currentCategoryTitle.textContent = categoryMetadata[category].title
+function xcvShowCategory(category) {
+  xcvCurrentCategoryName = category
+  xcvMainView.style.display = 'none'
+  xcvCategoryView.style.display = 'block'
+  xcvCurrentCategory.textContent = xcvCategoryMetadata[category].title
 
   // Populate type filter
-  typeFilter.innerHTML = '<option value="all">All Types</option>'
-  categoryMetadata[category].types.forEach((type) => {
-    typeFilter.innerHTML += `<option value="${type}">${categoryMetadata[category].typeLabels[type]}</option>`
+  xcvTypeFilter.innerHTML = '<option value="all">All Types</option>'
+  xcvCategoryMetadata[category].types.forEach((type) => {
+    xcvTypeFilter.innerHTML += `<option value="${type}">${xcvCategoryMetadata[category].typeLabels[type]}</option>`
   })
 
   // Show all items for this category initially
-  filterCategoryGallery()
+  xcvFilterCategoryGallery()
 }
 
 // Show main view
-function showMainView() {
-  mainView.style.display = 'block'
-  categoryView.style.display = 'none'
-  currentCategory = null
+function xcvShowMainView() {
+  xcvMainView.style.display = 'block'
+  xcvCategoryView.style.display = 'none'
+  xcvCurrentCategoryName = null
 }
 
 // Filter gallery items for current category
-function filterCategoryGallery() {
-  const yearValue = yearFilter.value
-  const typeValue = typeFilter.value
-  const searchValue = searchInput.value.toLowerCase()
+function xcvFilterCategoryGallery() {
+  const yearValue = xcvYearFilter.value
+  const typeValue = xcvTypeFilter.value
+  const searchValue = xcvSearchInput.value.toLowerCase()
 
-  const filtered = galleryData[currentCategory].filter((item) => {
+  const filtered = xcvGalleryData[xcvCurrentCategoryName].filter((item) => {
     return (
       (yearValue === 'all' || item.year === yearValue) &&
       (typeValue === 'all' || item.type === typeValue) &&
@@ -506,130 +487,130 @@ function filterCategoryGallery() {
     )
   })
 
-  renderGallery(filtered)
+  xcvRenderGallery(filtered)
 }
 
 // Render gallery items
-function renderGallery(items) {
-  galleryContainer.innerHTML = ''
-  currentItems = items
+function xcvRenderGallery(items) {
+  xcvGalleryContainer.innerHTML = ''
+  xcvCurrentItems = items
 
   if (items.length === 0) {
-    galleryContainer.innerHTML =
+    xcvGalleryContainer.innerHTML =
       '<p style="grid-column: 1/-1; text-align: center; padding: 2rem;">No photos found matching your criteria</p>'
     return
   }
 
   items.forEach((item) => {
     const galleryItem = document.createElement('div')
-    galleryItem.className = 'gallery-item'
+    galleryItem.className = 'xcv-gallery-item'
     galleryItem.dataset.id = item.id
 
     galleryItem.innerHTML = `
-            <img src="${item.img}" alt="${item.title}">
-            <div class="gallery-item-info">
+            <img class="xcv-gallery-img" src="${item.img}" alt="${item.title}">
+            <div class="xcv-gallery-info">
                 <h4>${item.title}</h4>
                 <p>${item.date}</p>
             </div>
         `
 
-    galleryContainer.appendChild(galleryItem)
+    xcvGalleryContainer.appendChild(galleryItem)
   })
 }
 
 // Open lightbox
-function openLightbox(index) {
-  const item = currentItems[index]
-  lightboxImage.src = item.img
-  lightboxImage.alt = item.title
-  lightboxTitle.textContent = item.title
-  lightboxDate.textContent = item.date
-  lightboxDescription.textContent = item.description
-  lightbox.classList.add('active')
-  currentIndex = index
+function xcvOpenLightbox(index) {
+  const item = xcvCurrentItems[index]
+  xcvLightboxImg.src = item.img
+  xcvLightboxImg.alt = item.title
+  xcvLightboxTitle.textContent = item.title
+  xcvLightboxDate.textContent = item.date
+  xcvLightboxDesc.textContent = item.description
+  xcvLightbox.classList.add('xcv-lightbox-active')
+  xcvCurrentIndex = index
   document.body.style.overflow = 'hidden'
 }
 
 // Close lightbox
-function closeLightboxFunc() {
-  lightbox.classList.remove('active')
+function xcvCloseLightbox() {
+  xcvLightbox.classList.remove('xcv-lightbox-active')
   document.body.style.overflow = 'auto'
 }
 
 // Navigate lightbox
-function navigateLightbox(direction) {
+function xcvNavigateLightbox(direction) {
   if (direction === 'prev') {
-    currentIndex =
-      (currentIndex - 1 + currentItems.length) % currentItems.length
+    xcvCurrentIndex =
+      (xcvCurrentIndex - 1 + xcvCurrentItems.length) % xcvCurrentItems.length
   } else {
-    currentIndex = (currentIndex + 1) % currentItems.length
+    xcvCurrentIndex = (xcvCurrentIndex + 1) % xcvCurrentItems.length
   }
 
-  const item = currentItems[currentIndex]
-  lightboxImage.src = item.img
-  lightboxImage.alt = item.title
-  lightboxTitle.textContent = item.title
-  lightboxDate.textContent = item.date
-  lightboxDescription.textContent = item.description
+  const item = xcvCurrentItems[xcvCurrentIndex]
+  xcvLightboxImg.src = item.img
+  xcvLightboxImg.alt = item.title
+  xcvLightboxTitle.textContent = item.title
+  xcvLightboxDate.textContent = item.date
+  xcvLightboxDesc.textContent = item.description
 }
 
 // Setup event listeners
-function setupEventListeners() {
+function xcvSetupEventListeners() {
   // Category card clicks
-  categoryCards.forEach((card) => {
+  xcvCategoryCards.forEach((card) => {
     card.addEventListener('click', () => {
       const category = card.dataset.category
-      showCategory(category)
+      xcvShowCategory(category)
     })
   })
 
   // Back button
-  backButton.addEventListener('click', (e) => {
+  xcvBackBtn.addEventListener('click', (e) => {
     e.preventDefault()
-    showMainView()
+    xcvShowMainView()
   })
 
   // Filter events
-  yearFilter.addEventListener('change', filterCategoryGallery)
-  typeFilter.addEventListener('change', filterCategoryGallery)
-  searchInput.addEventListener('input', filterCategoryGallery)
+  xcvYearFilter.addEventListener('change', xcvFilterCategoryGallery)
+  xcvTypeFilter.addEventListener('change', xcvFilterCategoryGallery)
+  xcvSearchInput.addEventListener('input', xcvFilterCategoryGallery)
 
   // Lightbox events
-  galleryContainer.addEventListener('click', (e) => {
-    const galleryItem = e.target.closest('.gallery-item')
+  xcvGalleryContainer.addEventListener('click', (e) => {
+    const galleryItem = e.target.closest('.xcv-gallery-item')
     if (galleryItem) {
       const id = parseInt(galleryItem.dataset.id)
-      const index = currentItems.findIndex((item) => item.id === id)
+      const index = xcvCurrentItems.findIndex((item) => item.id === id)
       if (index !== -1) {
-        openLightbox(index)
+        xcvOpenLightbox(index)
       }
     }
   })
 
-  closeLightbox.addEventListener('click', closeLightboxFunc)
-  prevBtn.addEventListener('click', () => navigateLightbox('prev'))
-  nextBtn.addEventListener('click', () => navigateLightbox('next'))
+  xcvLightboxClose.addEventListener('click', xcvCloseLightbox)
+  xcvLightboxPrev.addEventListener('click', () => xcvNavigateLightbox('prev'))
+  xcvLightboxNext.addEventListener('click', () => xcvNavigateLightbox('next'))
 
   // Close lightbox when clicking outside the image
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      closeLightboxFunc()
+  xcvLightbox.addEventListener('click', (e) => {
+    if (e.target === xcvLightbox) {
+      xcvCloseLightbox()
     }
   })
 
   // Keyboard navigation
   document.addEventListener('keydown', (e) => {
-    if (lightbox.classList.contains('active')) {
+    if (xcvLightbox.classList.contains('xcv-lightbox-active')) {
       if (e.key === 'Escape') {
-        closeLightboxFunc()
+        xcvCloseLightbox()
       } else if (e.key === 'ArrowLeft') {
-        navigateLightbox('prev')
+        xcvNavigateLightbox('prev')
       } else if (e.key === 'ArrowRight') {
-        navigateLightbox('next')
+        xcvNavigateLightbox('next')
       }
     }
   })
 }
 
 // Initialize the gallery when the DOM is loaded
-document.addEventListener('DOMContentLoaded', initGallery)
+document.addEventListener('DOMContentLoaded', xcvInitGallery)
